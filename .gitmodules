@@ -1,6 +1,3 @@
-[submodule "codalab-competitions"]
-	path = codalab-competitions
-	url = https://github.com/codalab/codalab-competitions.git
 [submodule "Distro"]
 	path = Distro
 	url = https://github.com/camicroscope/Distro.git
