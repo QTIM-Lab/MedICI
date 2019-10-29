@@ -1,5 +1,4 @@
 # MedICI
-Composite Challenge Platform
 
 ## What is MedICI
 
