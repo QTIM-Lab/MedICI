@@ -1,0 +1,2 @@
+# MedICI
+Composite Challenge Platform
