@@ -5,7 +5,7 @@ Composite Challenge Platform
 
 The Medical Challenge Initiative is a platform to promote innovation through collaboration, to harness the ingenuity of the American public. It is based on the Microsoft open source project [CodaLab](https://github.com/codalab/codalab-competitions), with integrations with caMicroscope and ePAd. Additional customizations to enhance the project were incorporated based on user inputs. 
 
-Codalab has their own installation instructions you can follow and we generally recommend following those. However, MedICI has a set of installation instructions performed step by step on Microsoft’s Azure platform. They are located [here](https://wiki.nci.nih.gov/display/MEDICI/Installing+MedICI+and+CodaLab)
+Codalab has their own installation instructions you can follow and we generally recommend following those. However, MedICI has a set of installation instructions performed step by step on Microsoft’s Azure platform. They are located [here](https://wiki.nci.nih.gov/display/MEDICI/Installing+MedICI+and+CodaLab).
 
 ## Customizations
 
