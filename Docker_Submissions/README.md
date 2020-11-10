@@ -1,10 +1,6 @@
 # MedICI Docker Submission Template
 
 ## Dockerfile
-* This is a the Dockerfile to show how you could built this submission image.
-* It is based on pytorch but tensorflow is acceptable and so is any deep learning package or library.
-
-Dockerfile:
 ```bash
 FROM pytorch/pytorch:latest
 
@@ -23,6 +19,11 @@ RUN pip install pandas
 #ENTRYPOINT ["python", "read_files.py"]
 CMD ["python", "read_files.py"]
 ```
+
+* This is a the Dockerfile to show how you could built this submission image.
+* It is based on pytorch but tensorflow is acceptable and so is any deep learning package or library.
+
+
 
 > The command "COPY data /workspace/data" is for my pytorch code (sample_deep_learning_model.py). You will not have internet on our system, so since the tutorial deep learning algorithm needs the CIFAR10 dataset, I had to load it in ahead of time. You shouldn't have this problem as your input data will be mounted to /mnt/in, so you will have access to it during run time.
 
