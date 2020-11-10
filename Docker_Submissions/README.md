@@ -28,6 +28,34 @@ CMD ["python", "read_files.py"]
 > The command "COPY data /workspace/data" is for my pytorch code (sample_deep_learning_model.py). You will not have internet on our system, so since the tutorial deep learning algorithm needs the CIFAR10 dataset, I had to load it in ahead of time. You shouldn't have this problem as your input data will be mounted to /mnt/in, so you will have access to it during run time.
 
 ## read_files.py
+```python
+import os, pandas as pd, random, sys
+
+# Sample Deep Learning Run
+import sample_deep_learning_model
+
+# for local development
+#IN = 'directory_of_files'
+#OUT = 'output_dir'
+
+# for use with docker mounts
+IN = '/mnt/in'
+OUT = '/mnt/out'
+
+
+if __name__ == "__main__":
+    files_dir = os.path.join(IN,'Pathology')
+    print(files_dir)
+    files = [file[0:-5] for file in os.listdir(files_dir) if file.find('.tiff') != -1]
+    classes = ['A','O','G']
+    submission_csv = pd.DataFrame({"CPM_RadPath_2020_ID":files, "class":[random.choice(classes) for file in files]})
+    
+    # Deep Learning Model
+    sample_deep_learning_model.run()
+    # Deep Learning Model
+
+    submission_csv.to_csv(os.path.join(OUT,"random.csv"), index=None)
+```
 This is actually the main python file that gets executed. The following things happen in here:  
 1. ```import sample_deep_learning_model``` - which is a pytorch tutorial. This should be replaced by your algorithm.  
 2. IN and OUT are defined as /mnt/in and /mnt/out. There is some flexibility here on whether you use IN and OUT variables specifically. The important thing is to make sure you read in files from /mnt/in and output your classification to /mnt/out. These will be mounts specified using the "-v" flag.  
