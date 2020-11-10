@@ -1,7 +1,7 @@
 # MedICI Docker Submission Template
 
 ## Dockerfile
-* This is a sample Dockerfile to show how you could built this submission image.
+* This is a the Dockerfile to show how you could built this submission image.
 * It is based on pytorch but tensorflow is acceptable and so is any deep learning package or library.
 
 ```bash
