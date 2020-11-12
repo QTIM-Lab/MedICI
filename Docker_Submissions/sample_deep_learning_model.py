@@ -1,4 +1,4 @@
-def run():
+def run(IN="/mnt/in",OUT="/mnt/out"):
     print("Training! ;)")
     import torch
     import torchvision
@@ -14,12 +14,12 @@ def run():
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
     # train
-    trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
+    trainset = torchvision.datasets.CIFAR10(root=IN, train=True,
                                             download=False, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=4,
                                             shuffle=False, num_workers=2)
     # test
-    testset = torchvision.datasets.CIFAR10(root='./data', train=False,
+    testset = torchvision.datasets.CIFAR10(root=IN, train=False,
                                         download=False, transform=transform)
     testloader = torch.utils.data.DataLoader(testset, batch_size=4,
                                             shuffle=False, num_workers=2)
