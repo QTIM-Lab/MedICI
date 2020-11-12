@@ -20,7 +20,7 @@ RUN pip install pandas
 CMD ["python", "read_files.py"]
 ```
 
-* This is a the Dockerfile to show how you could build this submission image.
+* This is the Dockerfile to show how you could build this submission image.
 * It is based on pytorch but tensorflow is acceptable and so is any deep learning package or library.
 
 > The command "COPY data /workspace/data" is for my pytorch code (sample_deep_learning_model.py). You will not have internet on our system, so since the tutorial deep learning algorithm needs the CIFAR10 dataset, I had to load it in ahead of time. You shouldn't have this problem as your input data will be mounted to /mnt/in, so you will have access to it during run time.
@@ -76,5 +76,72 @@ docker run \
 > Note: <path> will be set by competition organizers. Same for <auto generated id>
 
 ## Demo
+
+[1] Clone repo
+```bash
+$ git clone https://github.com/QTIM-Lab/MedICI.git
+$ cd MedICI/Docker_Submissions
+```
+
+[2] Build local image
+```
+$ docker build -t cpmchallenges/miccai-2020:training_phase_dl_submission .
+```
+
+[3] Download CIFAR images inside ./Docker_Submissions/directory_of_files
+
+> You will have to use your own local paths. I recommend mounting the cloned "directory_of_files". It will make a more seamless demo.
+
+```
+$ docker run \
+  --rm \
+  -v /home/bbearce/Documents/MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
+  cpmchallenges/miccai-2020:training_phase_dl_submission \
+  python download_CIFAR_images.py
+```
+
+[4] Run the image and don't forget to add a location for "/mnt/out":
+> ```-v /home/bbearce/Documents/MedICI/Docker_Submissions/out/:/mnt/out \```
+
+You can run it normally:
+```bash
+$ docker run \
+  --rm \
+  -v /home/bbearce/Documents/MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
+  -v /home/bbearce/Documents/MedICI/Docker_Submissions/out/:/mnt/out \
+  cpmchallenges/miccai-2020:training_phase_dl_submission
+```
+
+or interactively:
+```bash
+$ docker run \
+  -it \
+  --rm \
+  --name=participant_docker_submission_taskid_01 \
+  --stop-timeout=5000 \
+  --security-opt=no-new-privileges \
+  -v /home/bbearce/Documents/MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
+  -v /home/bbearce/Documents/MedICI/Docker_Submissions/out/:/mnt/out \
+  cpmchallenges/miccai-2020:training_phase_dl_submission \
+  bash
+```
+
+and then:
+```bash
+$ python read_files.py
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
