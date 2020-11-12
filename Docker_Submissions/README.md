@@ -80,7 +80,7 @@ docker run \
 [1] Clone repo
 ```bash
 $ git clone https://github.com/QTIM-Lab/MedICI.git
-$ cd MedICI/Docker_Submissions
+$ cd MedICI/Docker_Submissions; mkdir out;
 ```
 
 [2] Build local image
@@ -92,10 +92,14 @@ $ docker build -t cpmchallenges/miccai-2020:training_phase_dl_submission .
 
 > You will have to use your own local paths. I recommend mounting the cloned "directory_of_files". It will make a more seamless demo.
 
+```bash
+PATH_TO_MedICI=/home/bbearce/Documents/MedICI/;
+```
+
 ```
 $ docker run \
   --rm \
-  -v /home/bbearce/Documents/MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
+  -v $PATH_TO_MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
   cpmchallenges/miccai-2020:training_phase_dl_submission \
   python download_CIFAR_images.py
 ```
@@ -107,8 +111,8 @@ You can run it normally:
 ```bash
 $ docker run \
   --rm \
-  -v /home/bbearce/Documents/MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
-  -v /home/bbearce/Documents/MedICI/Docker_Submissions/out/:/mnt/out \
+  -v $PATH_TO_MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
+  -v $PATH_TO_MedICI/Docker_Submissions/out/:/mnt/out \
   cpmchallenges/miccai-2020:training_phase_dl_submission
 ```
 
@@ -120,8 +124,8 @@ $ docker run \
   --name=participant_docker_submission_taskid_01 \
   --stop-timeout=5000 \
   --security-opt=no-new-privileges \
-  -v /home/bbearce/Documents/MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
-  -v /home/bbearce/Documents/MedICI/Docker_Submissions/out/:/mnt/out \
+  -v $PATH_TO_MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
+  -v $PATH_TO_MedICI/Docker_Submissions/out/:/mnt/out \
   cpmchallenges/miccai-2020:training_phase_dl_submission \
   bash
 ```
