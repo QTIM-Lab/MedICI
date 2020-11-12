@@ -16,11 +16,11 @@ if __name__ == "__main__":
     submission_csv = pd.DataFrame({"CPM_RadPath_2020_ID":files, "class":[random.choice(classes) for file in files]})
     
     # Deep Learning Model - local
-    # sample_deep_learning_model.run(IN+"/data", OUT)
+    sample_deep_learning_model.run(IN+"/data", OUT)
     # Deep Learning Model - local
 
     # Deep Learning Model - on submission
-    sample_deep_learning_model.run("/workspace/data", OUT)
+    # sample_deep_learning_model.run("/workspace/data", OUT)
     # Deep Learning Model - on submission
 
     submission_csv.to_csv(os.path.join(OUT,"random.csv"), index=None)
