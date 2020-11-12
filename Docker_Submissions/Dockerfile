@@ -19,7 +19,7 @@ COPY download_CIFAR_images.py /workspace
 # This won't be necessary in your real image because the only data you need 
 # will be supplied at /mnt/in.
 
-COPY ./directory_of_files/data /workspace/data
+# COPY ./directory_of_files/data /workspace/data
 
 #ENTRYPOINT ["python", "read_files.py"]
 CMD ["python", "read_files.py"]
