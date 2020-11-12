@@ -75,7 +75,7 @@ docker run \
 ```
 > Note: <path> will be set by competition organizers. Same for <auto generated id>
 
-## Demo
+## Demo - part 1
 
 [1] Clone repo
 ```bash
@@ -121,9 +121,6 @@ or interactively:
 $ docker run \
   -it \
   --rm \
-  --name=participant_docker_submission_taskid_01 \
-  --stop-timeout=5000 \
-  --security-opt=no-new-privileges \
   -v $PATH_TO_MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
   -v $PATH_TO_MedICI/Docker_Submissions/out/:/mnt/out \
   cpmchallenges/miccai-2020:training_phase_dl_submission \
@@ -135,7 +132,47 @@ and then:
 $ python read_files.py
 ```
 
+## Demo - part 2
 
+To submit to CodaLab there is only a couple changes required.
+
+[1] Dockerfile
+Un comment this code: ```# COPY ./directory_of_files/data /workspace/data```
+
+[2] read_files.py
+
+Comment out the local ```sample_deep_learning_model``` and uncomment the CodaLab one so that it looks as follows:
+
+```python
+    # Deep Learning Model - local
+    # sample_deep_learning_model.run(IN+"/data", OUT)
+    # Deep Learning Model - local
+
+    # Deep Learning Model - CodaLab submission
+    sample_deep_learning_model.run("/workspace/data", OUT)
+    # Deep Learning Model - CodaLab submission
+```
+
+[3] Rebuild the image
+
+```bash
+$ docker build -t cpmchallenges/miccai-2020:training_phase_dl_submission .
+```
+
+[4] Test run to make sure it still works:
+```bash
+$ docker run \
+  --rm \
+  -v $PATH_TO_MedICI/Docker_Submissions/directory_of_files/:/mnt/in \
+  -v $PATH_TO_MedICI/Docker_Submissions/out/:/mnt/out \
+  cpmchallenges/miccai-2020:training_phase_dl_submission
+```
+
+[5] Push to a repo:
+
+```bash
+$ docker push cpmchallenges/miccai-2020:training_phase_dl_submission
+```
 
 
 

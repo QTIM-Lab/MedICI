@@ -19,9 +19,9 @@ if __name__ == "__main__":
     sample_deep_learning_model.run(IN+"/data", OUT)
     # Deep Learning Model - local
 
-    # Deep Learning Model - on submission
+    # Deep Learning Model - CodaLab submission
     # sample_deep_learning_model.run("/workspace/data", OUT)
-    # Deep Learning Model - on submission
+    # Deep Learning Model - CodaLab submission
 
     submission_csv.to_csv(os.path.join(OUT,"random.csv"), index=None)
 
