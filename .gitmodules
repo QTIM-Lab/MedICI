@@ -3,4 +3,4 @@
 	url = https://github.com/camicroscope/Distro.git
 [submodule "codalab-competitions"]
 	path = codalab-competitions
-	url = https://github.com/QTIM-Lab/codalab-competitions.git
+	url = https://github.com/QTIM-Lab/codalab-competitions
