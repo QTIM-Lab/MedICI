@@ -4,3 +4,6 @@
 [submodule "codalab-competitions"]
 	path = codalab-competitions
 	url = https://github.com/QTIM-Lab/codalab-competitions
+[submodule "codalab"]
+	path = codalab
+	url = https://github.com/QTIM-Lab/codalab-competitions.git
