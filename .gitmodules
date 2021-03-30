@@ -4,6 +4,3 @@
 [submodule "codalab"]
 	path = codalab
 	url = https://github.com/QTIM-Lab/codalab-competitions.git
-[submodule "worker"]
-	path = worker
-	url = https://github.com/codalab/competitions-v1-compute-worker.git
